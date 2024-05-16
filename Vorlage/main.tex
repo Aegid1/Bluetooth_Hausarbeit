@@ -1,4 +1,4 @@
-\documentclass[
+´\documentclass[
     a4paper,
     pagesize,
     pdftex,
@@ -12,7 +12,6 @@
 \usepackage[draft=false,babel,tracking=true,kerning=true,spacing=true]{microtype}
 \usepackage{enumerate}
 \usepackage{fancyhdr}
-
 \graphicspath{{./images/}}
 
 \pagestyle{fancy}
@@ -37,13 +36,24 @@
 
             \vspace{1.5cm}
 
-            vorgelegt von \\
-            \textbf{Vorname Name Matrikelnr.}%Vor-, Nachname, Matrikelnummer
+            vorgelegt von \\[0.5cm]
+            \textbf{Fatih Görgülü Matrikelnr.} \\
+            \textbf{Jakob Heiner-Scharf Matrikelnr.} \\
+            \textbf{Maik Peters Matrikelnr.} \\
+            \textbf{Eddy Klammer Matrikelnr.} \\
+            \textbf{Ägidius Haslauer 585016.} \\
+
 
             \vspace{1.5cm}
             Berlin, \today\\
         \end{center}
     \end{titlepage}
+
+
+    \newpage
+    \textbf{Abstract}
+
+    \newpage
 
     \pagenumbering{gobble}
 
@@ -54,14 +64,45 @@
     \pagenumbering{arabic}
 
 % Nutzen Sie bei jedem neuen Kapitel eine neue Seite \newpage
+    \section{Einleitung}
+    \text{Bluetooth ist eine Technologie, die eine drahtlose Kommunikation zwischen mehreren technischen Geräten ermöglicht. Seit der Entwicklung der Technologie der Bluetooth Special Industry Group (SIG) in 1998 hat sich Bluetooth zu einem weit verbreiteten Standard für die Kommunikation zwischen Geräten auf kurzer Reichweite entwickelt. }\cite{history_of_bluetooth}\text{ Dies zeigt sich dadurch, dass die Anzahl der verkauften Geräte weltweit, welche Bluetooth verwenden, in 2022 eine Summe von 4.9 Milliarden Geräten betrug. }\cite{bluetooth_device_shipments}
+    \text{Die Anwendungsfelder von Bluetooth sind dabei sehr vielfältig. Die Technologie wird in kabellosen Kopfhörern, in Autos oder auch in Smart-Home Geräten verwendet. }\cite{bluetooth_newest_security_risks} \\
+    \text{Aufgrund dieser weiten Verbreitung ist es wichtig, dass diese Technologie die entsprechenden Sicherheitsmaßnahmen mitbringt, sodass die Nutzer vor potenziellen Sicherheitsrisiken geschützt sind und die Technologie weiterhin verlässlich verwenden können. Dies wird durch Updates und neue Varianten der Technologie, wie die Bluetooth Low Energy (BLE) Variante ermöglicht. Dennoch gibt es neue Angriffsmethodiken, die darauf abzielen die Schwachstellen dieser Technologie auszunutzen um unbefugten Zugriff auf verbundene Geräte zu erlangen, Daten abzufangen, Daten zu manipulieren oder andere schädliche Aktionen durchzuführen.} \\
+    \text{Ein Beispiel für einen solchen Angriff ist die Method Confusion Attack, bei dem der Angreifer eine man in the middle (MITM) Position erlangt und sich dadurch unerlaubten Zugriff auf die Daten des Opfers verschafft. Der Angriff wird im Folgenden unter den Gesichtspunkten Angriffsmethodik, Risiken und Schutzmaßnahmen genauer betrachtet.}
+    \newpage
+
+
+
     \section{Angriffsstrategie}
+    \text{Die Method Confusion Attack ist ein Angriff, bei dem versucht wird, eine MITM Postion zu erlangen. In diesem Abschnitt werden die notwendigen Voraussetzungen und Pairing Methoden des Pairing Prozesses erläutert, welche für eine erfolgreiche Durchführung des Angriffs benötigt werden. Es wird darauf eingegangen, inwiefern eine Verwirrung durch den Angriff entsteht. Abschließend folgt eine Erklärung der bereits angesprochenen MITM Position und wie diese durch die Method Confusion Attack erreicht wird.}
+    \subsection{Voraussetzungen}
+    \text{Die Method Confusion Attack benötigt dabei eine Reihe an Voraussetzungen, sodass diese erfolgreich durchgeführt werden kann.
+    Zunächst müssen die Geräte des Ziels einen Verbindungsaufbau initieren, es darf also keine bereits aktive Bluetooth Verbindung der beiden Geräte bestehen. (4. C) 
+    Zudem muss der Angreifer sich in der Nähe des Ziels, also in der Reichweite der Bluetooth Übertragung der Geräte befinden. Die notwendige Reichweite ist dabei sehr stark von den Bluetooth Classes also den Geräten sowie den äußeren Einflüssen abhängig, weswegen in dieser Arbeit nicht genauer auf diesen Aspekt eingegangen wird. \cite{bluetooth_reichweite}
+    (Jamming des Signals)
+    Die beiden Geräte müssen dabei unterschiedliche Pairing Methoden verwenden. Dabei ist wichtig, dass eines der Geräte die Pairing Methode Passkey und das andere Gerät die Methode Numeric verwendet. Was die einzelnen Pairing Methoden sind wird unter 2.2 erklärt. (3. A)
+    (IO Caps)
+    }
+    \subsection{Pairing}
+        \subsubsection{NC}
+        \subsubsection{PE}
 
+    \subsection{Confusion}
+    \subsection{MITM}
 
     \newpage
-    \section{Schutzmaßnahmen vor dem Angriff}
+    \section{Risiken}
+\subsection{geringe Risiken}
+\subsection{hohe Risiken}
 
     \newpage
-    \section{Auswirkungen des Angriffs}
+    \section{Schutzmaßnahmen}
+\subsection{Maßnahme 1}
+\subsection{Maßnahme 2}
+
+    \newpage
+\section{Fazit}
+
 % Referenzen bitte in references.bib einfügen
     \newpage
 
