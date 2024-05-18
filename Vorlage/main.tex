@@ -98,12 +98,13 @@
         \text{Die Passkey Entry Methode verwendet ebenfalls einen Wert für den Verbindungsaufbau, dieser ist 6-stellig. Hierbei wird ein Gerät benötigt das über eine Eingabe -und Ausgabefunktionalität verfügt und ein Gerät das einen Display besitzt. Der 6-stellige Wert wird zwischen den Geräten während des Pairing Prozesses ausgetauscht und der Benutzer wird dazu aufgefordert den angezeigten Wert auf dem Display des einen Gerätes in das andere Gerät einzugeben. Wenn beide Werte überprüft wurden und diese auch übereinstimmen, gilt der Verbindungsaufbau als erfolgreich und der Pairing Prozess ist damit abgeschlossen.} \cite{method_confusion_attack}
 
     \subsection{Confusion}
+        \text{Zunächst werden statt einer einzelnen Koppelung zwischen den Geräten des Ziels zwei Kopplungen simultan mit dem Angreifer durchgeführt. Ein Gerät verbindet sich mit dem MitM-Responder (Sitzung 1), und der MitM-Initiator verbindet sich mit dem anderen Gerät (Sitzung 2). Es ist essentiell dabei, dass Sitzung 1 über Numeric Comparison erfolgt und Sitzung 2 über Passkey Entry. Für das Ziel scheint es dann so, als würde lediglich die Methode Passkey Entry zwischen den Geräten durchgeführt werden, da eins der Geräte den Passcode anzeigt (Sitzung 1)  und das andere Gerät dazu auffordert (Sitzung 2), einen Passcode einzugeben. \\
+        Der Angreifer wartet, bis mittels Numeric Comparison (Sitzung 1) der Passcode angezeigt wird, sodass er diese Information verwenden kann, um diesen Passcode in Sitzung 2 zu verwenden. Damit wird der Benutzer aufgefordert, den angezeigten Passcode aus Sitzung 1 in das andere Gerät in Sitzung 2 einzugeben. Dadurch scheint es für den Benutzer wie ein legitimer Kopplungsversuch der beiden Geräte, aber in Wirklichkeit kontrolliert der Angreifer ab jetzt die Verbindung mit einer entsprechenden Koordination der beiden Verbindungen.} \cite{method_confusion_attack, bluetooth_formal_analysis} \\
+        \text{Die Verwirrung des Angriffs entsteht also grundsätzlich dadurch, dass zwei verschiedene Pairing Methoden verwendet werden und der Benutzer sich dessen nicht bewusst ist. Dass beide Pairing Methoden auf diese Art und Weise für diesen Zweck verwendet werden können, liegt daran, dass ein Passcode mit der gleichen Form in beiden Methoden verwendet wird und auch nicht authentifiziert wird, welche Methoden im Kopplungsversuch verwendet werden.} \cite{method_confusion_attack}
     \subsection{MITM}
 
     \newpage
     \section{Risiken}
-\subsection{geringe Risiken}
-\subsection{hohe Risiken}
 
     \newpage
     \section{Schutzmaßnahmen}
