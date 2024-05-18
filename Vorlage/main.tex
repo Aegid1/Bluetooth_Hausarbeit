@@ -51,8 +51,13 @@
 
 
     \newpage
-    \textbf{Abstract}
+    \subsection*{Abstract} \\
+    \text{Der Method Confusion Angriff stellt einen Man-in-the-Middle (MITM) Angriff dar, der während des Verbindungsaufbaus über Bluetooth zwischen mehreren Geräten durchgeführt werden kann. Dieser Angriff nutzt eine Schwachstelle der Pairing Methoden aus, welche für einen Verbindungsaufbau mittels Bluetooth benötigt werden. Die Funktionsweise des Angriffs und der Pairing Methoden wird im folgenden weiter erläutert.\\
+    Der Angriff bietet dabei Risiken für die Nutzer von Bluetooth, welche in dieser Arbeit behandelt werden. Zudem werden Schutzmaßnahmen erläutert, welche die Benutzer vor diesem Angriff schützen können.} \\
 
+    \subsection*{Schlüsselwörter} \\
+    \text{Bluetooth, MITM, Sicherheitsrisiken, Sicherheitsmaßnahmen}
+    
     \newpage
 
     \pagenumbering{gobble}
@@ -81,9 +86,8 @@
     \text{Die Method Confusion Attack benötigt dabei eine Reihe an Voraussetzungen, sodass diese erfolgreich durchgeführt werden kann.
     Zunächst müssen die Geräte des Ziels einen Verbindungsaufbau initieren, es darf also keine bereits aktive Bluetooth Verbindung der beiden Geräte bestehen. }\\
     \text{Zudem muss der Angreifer sich in der Nähe des Ziels, also in der Bluetooth Übertragungsreichweite der Geräte befinden. Die notwendige Reichweite ist dabei sehr stark von den Bluetooth Classes also den Geräten, sowie den äußeren Einflüssen abhängig, weswegen in dieser Arbeit nicht genauer auf diesen Aspekt eingegangen wird. }\\
-    (Jamming des Signals)
+    (Jamming des Signals)\\
     \text{Die beiden Geräte müssen dabei unterschiedliche Pairing Methoden verwenden. Dabei ist wichtig, dass eines der Geräte die Pairing Methode Passkey Entry und das andere Gerät die Methode Numeric Comparison verwendet. Was die einzelnen Pairing Methoden bedeuten wird unter 2.2 erklärt. \\
-    (IO Caps) \\
     (Version)
     \cite{method_confusion_attack, bluetooth_reichweite}
     }
@@ -105,9 +109,13 @@
 
     \newpage
     \section{Risiken}
+    Der Method Confusion Angriff bietet einige Risiken für die Benutzer von Bluetooth. Im Folgenden werden einige dieser Risiken erläutert und hinsichtlich des potenziellen Schadens und der Wahrscheinlichkeit des Eintretens betrachtet. \\
+    Wie eine Nutzerstudie ergeben hat, konnte niemand der Teilnehmer den Angriff bemerken und bei 37 von 40 Teilnehmern wurde der Pairing Prozess erfolgreich abgeschlossen, sodass eine MITM Position erlangt wurde. \cite{method_confusion_attack} Aufgrund dieses Ergebnisses, besteht eine große Wahrscheinlichkeit, dass bei einem Angriffsversuch der Angriff erfolgreich ist und der Angreifer unbemerkt bleibt.
+    Die Schäden von MITM Angriffen sind schwer einzuschätzen
 
     \newpage
     \section{Schutzmaßnahmen}
+    Um die oben genannten Risiken ausgehend des Method Confusion Angriffs zu minimieren bzw. zu verhindern werden Schutzmaßnahmen benötigt, die eine sichere Nutzung von Bluetooth ermöglichen.
 \subsection{Maßnahme 1}
 \subsection{Maßnahme 2}
 
