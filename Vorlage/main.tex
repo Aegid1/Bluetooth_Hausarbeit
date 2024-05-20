@@ -75,7 +75,7 @@
     \text{Aufgrund dieser weiten Verbreitung ist es wichtig, dass diese Technologie die entsprechenden Sicherheitsmaßnahmen mitbringt, sodass die Nutzer vor potenziellen Sicherheitsrisiken geschützt sind und die Technologie weiterhin verlässlich verwenden können.} \\
     \text{Dennoch gibt es neue Angriffsmethodiken, die darauf abzielen die Schwachstellen dieser Technologie auszunutzen um unbefugten Zugriff auf verbundene Geräte zu erlangen, Daten abzufangen, Daten zu manipulieren oder andere schädliche Aktionen durchzuführen.} \cite{bluetooth_newest_security_risks} \\
     \text{Ein Beispiel für einen solchen Angriff ist die Method Confusion Attack, bei dem der Angreifer eine man in the middle (MITM) Position erlangt und sich dadurch unerlaubten Zugriff auf die übertragenen Daten des Opfers verschafft. Es wurde eine Nutzerstudie mit 40 Teilnehmern durchgeführt, wobei der Angriff bei 37 der 40 Teilnehmer zu einem erfolgreichen Pairing Prozess erfolgte und somit der Angriff erfolgreich abgeschlossen wurde. Keiner der Teilnehmenden hat den Angriff bemerkt.} \cite{method_confusion_attack}
-    \text{Der Angriff wird im Folgenden unter den Gesichtspunkten Angriffsmethodik, Risiken und Schutzmaßnahmen genauer betrachtet.}
+    \text{Der Angriff wird im Folgenden unter den Gesichtspunkten Angriffsstrategie, Risiken und Schutzmaßnahmen genauer betrachtet.}
     \newpage
 
 
@@ -94,7 +94,7 @@
     \subsection{Pairing}
     \text{Ein essentieller Bestandteil des Verbindungsaufbaus ist der Pairing Prozess. Hier werden zunächst die Informationen ausgetauscht, welche benötgt werden um später die Pairing Methode auszuwählen. Zum Beispiel geht es darum, ob ein Gerät eine Anzeigefunktion besitzt oder nicht. Danach werden die öffentlichen Schlüssel beider Geräte ausgetauscht, welche dann wiederum dafür verwendet werden um den Diffie-Hellmann Schlüssel zu berechnen. Basierend auf diesen Schlüssel, welcher auf den ausgetauschten Informationen basiert, wird eine der möglichen Pairing Methoden ausgewählt. Es gibt dabei unterschiedliche Pairing Methoden, welche verwendet werden können und der weitere Pairing Prozess hängt stark von der verwendeten Pairing Methode ab. \cite{bluetooth_formal_analysis}} \\
     \text{Im Folgenden werden lediglich die Methoden Passkey Entry (PE) und Numeric Comparison (NC) betrachtet. Dies hat den Hintergrund, dass die Pairing Methode Just Works hauptsächlich von legacy Geräten verwendet wird, die Sicherheitsmaßnahmen dementsprechend sehr veraltet sind und viele sicherheitstechnische Risiken bestehen. Es existiert kein MITM Schutz, wodurch eine Berücksichtigung der Methode für einen Angriff der auf eine MITM Position abzielt nicht notwendig ist.} \cite{bluetooth_newest_security_risks} \\
-    \text{Out of Band Pairing (OOB) ermöglicht, dass Entwickler eigene Pairing Mechanismen implementieren können. Dementsprechend hängen die sicherheitstechnischen Risiken sehr stark von den einzelnen Implementierungen ab. Mit den korrekten Konfigurationen kann OOB aber durchaus einen MITM Schutz bieten, da es nicht auf den MITM Schutz von Bluetooth basieren muss. Eine Berücksichtigung von OOB in den folgenden Abschnitten ist daher nicht sinnvoll, jedoch wird OOB in Abschnitt 4 Schutzmaßnahmen behandelt.} \cite{method_confusion_attack, bluetooth_oob}
+    \text{Out of Band Pairing (OOB) ermöglicht, dass Entwickler eigene Pairing Mechanismen implementieren können. Dementsprechend hängen die sicherheitstechnischen Risiken sehr stark von den einzelnen Implementierungen ab. Mit den korrekten Konfigurationen kann OOB aber durchaus einen MITM Schutz bieten, da es nicht auf den MITM Schutz von Bluetooth basieren muss. Eine Berücksichtigung von OOB wird daher in den folgenden Abschnitten nicht vorgenommen.} \cite{method_confusion_attack, bluetooth_oob}
 
         \subsubsection{NC}
         \text{Bei der Numeric Comparison Methode ist es notwendig, dass alle Geräte über ein Display verfügen, da hierbei der gleiche Wert auf allen Geräten angezeigt wird. Der Benutzer wird daraufhin aufgefordert die Werte auf den Geräten zu bestätigen, falls diese übereinstimmen. Wenn dies der Fall ist und der Benutzer das auch bestätigt, gilt der Verbindungsaufbau als erfolgreich und der Pairing Prozess ist damit abgeschlossen.}  \cite{method_confusion_attack}
@@ -110,19 +110,23 @@
     \newpage
     \section{Risiken}
     Der Method Confusion Angriff bietet einige Risiken für die Benutzer von Bluetooth. Im Folgenden werden einige dieser Risiken erläutert und hinsichtlich des potenziellen Schadens und der Wahrscheinlichkeit des Eintretens betrachtet. \\
-    Wie eine Nutzerstudie ergeben hat, konnte niemand der Teilnehmer den Angriff bemerken und bei 37 von 40 Teilnehmern wurde der Pairing Prozess erfolgreich abgeschlossen, sodass eine MITM Position erlangt wurde. \cite{method_confusion_attack} Aufgrund dieses Ergebnisses, besteht eine große Wahrscheinlichkeit, dass bei einem Angriffsversuch der Angriff erfolgreich ist und der Angreifer unbemerkt bleibt.
+    Wie eine Nutzerstudie ergeben hat, konnte niemand der Teilnehmer den Angriff bemerken und bei 37 von 40 Teilnehmern wurde der Pairing Prozess erfolgreich abgeschlossen, sodass eine MITM Position erlangt wurde. \cite{method_confusion_attack} Aufgrund dieses Ergebnisses, besteht eine große Wahrscheinlichkeit, dass bei einem Angriffsversuch der Angriff erfolgreich ist und der Angreifer unbemerkt bleibt. Das macht den Angriff für den Angreifer sehr attraktiv, wodurch die Wahrscheinlichkeit des Eintretens eines solchen Angriffes sehr hoch ist. \\
     Die Schäden von MITM Angriffen sind schwer einzuschätzen
 
     \newpage
     \section{Schutzmaßnahmen}
-    Um die oben genannten Risiken ausgehend des Method Confusion Angriffs zu minimieren bzw. zu verhindern werden Schutzmaßnahmen benötigt, die eine sichere Nutzung von Bluetooth ermöglichen.
-\subsection{Maßnahme 1}
-\subsection{Maßnahme 2}
-
+    Um die oben genannten Risiken ausgehend des Method Confusion Angriffs zu minimieren bzw. zu verhindern werden Schutzmaßnahmen benötigt, die eine sichere Nutzung von Bluetooth ermöglichen. Dabei gilt es zu unterscheiden, zwischen Sicherheitsmaßnahmen, die Benutzer von Bluetooth direkt anwenden können und Sicherheitsmaßnahmen, die von Entwicklern in Zukunft implementiert werden sollten.
+\subsection{Benutzerbezogen}
+    Benuter von Bluetooth sollten in ihren Standardeinstellungen die Sichtbarkeit ihres Gerätes einschränken, sodass das Gerät nur dann angezeigt wird, wenn das Pairing ausgeführt werden soll. Dadurch wird es dem Angreifer erschwert Geräte zu finden, da diese in einem viel kürzeren Zeitraum sichtbar sind. \\
+    Ähnlich zu dieser Maßnahme ist auch, dass man bei seinen Geräten nur dann Bluetooth aktivieren sollte, wenn ein Pairing der beiden Geräte ausgeführt werden soll. Dies erschwert es ebenfalls dem Angreifer potenzielle Geräte zu finden, da es den Zeitraum der Verfügbarkeit verringert. \cite{bluetooth_newest_security_risks}
+\subsection{Entwicklerbezogen}
+    Grundsätzlich gilt es für Entwickler, die Geräte immer nach der neuesten Bluetooth Spezifikation auszurichten. Dies hat den Hintergrund, dass neue Spezifikationen bekannte Sicherheitslücken beheben und unter Umständen dadurch die Schwachstelle behoben wird, welche für den Method Confusion Angriff verantwortlich ist. \cite{bluetooth_newest_security_risks} \\
+    Eine konkretere Schutzmaßnahme, welche auf die Behebung der angesprochenen Schwachstelle abzielt, wäre unterschiedliche Eingabeaufforderungen bei unterschiedlichen Pairing Methoden zu verwenden. Dadurch wäre es transparenter, welche Pairing Methode verwendet wird. Es sollte der Name der verwendeten Methode und ein entsprechender Hinweis dargestellt werden, welcher angibt, dass man darauf achten sollte, dass die gleichen Methoden verwendet werden müssen. Dadurch wäre es für den Benutzer klar erkennbar ob die verwendeten Methoden übereinstimmen oder nicht und zugleich könnte er aufgrund des Hinweises beurteilen, ob ein Angreifer bei seinem Kopplungsversuch mit involviert ist. \cite{bluetooth_formal_analysis} \\
+    Eine andere Maßnahme wäre es, unterschiedliche Formate für den Passcode zu verwenden. Momentan werden bei den Methoden Passkey Entry und Numeric Comparison jeweils ein 6-stelliger Wert verwendet, dies sorgt unter anderem dafür, dass der Method Confusion Angriff funktioniert. Wenn bei der Numeric Comparison Methode ein 8-stelliger Wert verwendet werden würde, wäre es dem Benutzer ersichtlich, dass im Falle eines Method Confusion Angriffes etwas nicht stimmt. Der Benutzer würde demnach aufgefordert werden den 8-stelligen Wert in das 6-stellige Eingabefeld einzugeben, was natürlich nicht möglich ist. \cite{bluetooth_formal_analysis}
+    
     \newpage
 \section{Fazit}
 
-% Referenzen bitte in references.bib einfügen
     \newpage
 
     \bibliographystyle{ieeetr}
