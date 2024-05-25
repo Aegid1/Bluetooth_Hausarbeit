@@ -8,11 +8,17 @@
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
 
+\usepackage{kvoptions}
 \usepackage[unicode=true]{hyperref}
 \usepackage[draft=false,babel,tracking=true,kerning=true,spacing=true]{microtype}
 \usepackage{enumerate}
 \usepackage{fancyhdr}
+\usepackage{abstract}
 \graphicspath{{./images/}}
+
+\newenvironment{keywords}%
+{\begin{trivlist}\item[]{\bfseries\sffamily Keywords}\ }
+{\end{trivlist}}
 
 \pagestyle{fancy}
 \lhead{F. Görgülü, J. Heiner-Scharf, Ä. Haslauer, M. Peters , E. Klammer} % Bitte auch hier ihre Namen in Form "J. Schroeder"
@@ -51,12 +57,11 @@
 
 
     \newpage
-    \subsection*{Abstract} \\
-    \text{Der Method Confusion Angriff stellt einen Man-in-the-Middle (MITM) Angriff dar, der während des Verbindungsaufbaus über Bluetooth zwischen mehreren Geräten durchgeführt werden kann. Dieser Angriff nutzt eine Schwachstelle der Pairing Methoden aus, welche für einen Verbindungsaufbau mittels Bluetooth benötigt werden. Die Funktionsweise des Angriffs und der Pairing Methoden wird im folgenden weiter erläutert.\\
+    \renewcommand\abstractname{Abstract}
+    \abstract{Der Method Confusion Angriff stellt einen Man-in-the-Middle (MITM) Angriff dar, der während des Verbindungsaufbaus über Bluetooth zwischen mehreren Geräten durchgeführt werden kann. Dieser Angriff nutzt eine Schwachstelle der Pairing Methoden aus, welche für einen Verbindungsaufbau mittels Bluetooth benötigt werden. Die Funktionsweise des Angriffs und der Pairing Methoden wird im folgenden weiter erläutert.\\
     Der Angriff bietet dabei Risiken für die Nutzer von Bluetooth, welche in dieser Arbeit behandelt werden. Zudem werden Schutzmaßnahmen erläutert, welche die Benutzer vor diesem Angriff schützen können.} \\
 
-    \subsection*{Schlüsselwörter} \\
-    \text{Bluetooth, MITM, Sicherheitsrisiken, Sicherheitsmaßnahmen}
+    \keywords{Bluetooth, MITM, Sicherheitsrisiken, Sicherheitsmaßnahmen}
     
     \newpage
 
@@ -74,14 +79,14 @@
     \text{Die Anwendungsfelder von Bluetooth sind dabei sehr vielfältig. Die Technologie wird in kabellosen Kopfhörern, in Autos oder auch in Smart-Home Geräten verwendet. }\cite{bluetooth_newest_security_risks} \\
     \text{Aufgrund dieser weiten Verbreitung ist es wichtig, dass diese Technologie die entsprechenden Sicherheitsmaßnahmen mitbringt, sodass die Nutzer vor potenziellen Sicherheitsrisiken geschützt sind und die Technologie weiterhin verlässlich verwenden können.} \\
     \text{Dennoch gibt es neue Angriffsmethodiken, die darauf abzielen die Schwachstellen dieser Technologie auszunutzen um unbefugten Zugriff auf verbundene Geräte zu erlangen, Daten abzufangen, Daten zu manipulieren oder andere schädliche Aktionen durchzuführen.} \cite{bluetooth_newest_security_risks} \\
-    \text{Ein Beispiel für einen solchen Angriff ist die Method Confusion Attack, bei dem der Angreifer eine man in the middle (MITM) Position erlangt und sich dadurch unerlaubten Zugriff auf die übertragenen Daten des Opfers verschafft. Es wurde eine Nutzerstudie mit 40 Teilnehmern durchgeführt, wobei der Angriff bei 37 der 40 Teilnehmer zu einem erfolgreichen Pairing Prozess erfolgte und somit der Angriff erfolgreich abgeschlossen wurde. Keiner der Teilnehmenden hat den Angriff bemerkt.} \cite{method_confusion_attack}
+    \text{Ein Beispiel für einen solchen Angriff ist die Method Confusion Attack, bei dem der Angreifer eine man in the middle (MITM) Position erlangt und sich dadurch unerlaubten Zugriff auf die übertragenen Daten des Opfers verschafft. Es wurde eine Nutzerstudie mit 40 Teilnehmern durchgeführt, wobei der Angriff bei 37 der 40 Teilnehmer zu einem erfolgreichen Pairing Prozess erfolgte und somit der Angriff erfolgreich abgeschlossen wurde. Keiner der Teilnehmenden hat den Angriff bemerkt \cite{method_confusion_attack}.} 
     \text{Der Angriff wird im Folgenden unter den Gesichtspunkten Angriffsstrategie, Risiken und Schutzmaßnahmen genauer betrachtet.}
     \newpage
 
 
 
     \section{Angriffsstrategie}
-    \text{Die Method Confusion Attack ist ein Angriff, bei dem versucht wird, eine MITM Postion zu erlangen. In diesem Abschnitt werden die notwendigen Voraussetzungen und Pairing Methoden des Pairing Prozesses erläutert, welche für eine erfolgreiche Durchführung des Angriffs benötigt werden. Es wird darauf eingegangen, inwiefern eine Verwirrung durch den Angriff entsteht. Abschließend folgt eine Erklärung der bereits angesprochenen MITM Position und wie diese durch die Method Confusion Attack erreicht wird.}
+    \text{Die Method Confusion Attack ist ein Angriff, bei dem versucht wird, eine MITM Postion zu erlangen \cite{method_confusion_attack}. In diesem Abschnitt werden die notwendigen Voraussetzungen und Pairing Methoden des Pairing Prozesses erläutert, welche für eine erfolgreiche Durchführung des Angriffs benötigt werden. Es wird darauf eingegangen, inwiefern eine Verwirrung durch den Angriff entsteht. Abschließend folgt eine Erklärung der bereits angesprochenen MITM Position und wie diese durch die Method Confusion Attack erreicht wird.}
     \subsection{Voraussetzungen}
     \text{Die Method Confusion Attack benötigt dabei eine Reihe an Voraussetzungen, sodass diese erfolgreich durchgeführt werden kann.
     Zunächst müssen die Geräte des Ziels einen Verbindungsaufbau initieren, es darf also keine bereits aktive Bluetooth Verbindung der beiden Geräte bestehen. }\\
@@ -92,7 +97,7 @@
     \cite{method_confusion_attack, bluetooth_reichweite}
     }
     \subsection{Pairing}
-    \text{Ein essentieller Bestandteil des Verbindungsaufbaus ist der Pairing Prozess. Hier werden zunächst die Informationen ausgetauscht, welche benötgt werden um später die Pairing Methode auszuwählen. Zum Beispiel geht es darum, ob ein Gerät eine Anzeigefunktion besitzt oder nicht. Danach werden die öffentlichen Schlüssel beider Geräte ausgetauscht, welche dann wiederum dafür verwendet werden um den Diffie-Hellmann Schlüssel zu berechnen. Basierend auf diesen Schlüssel, welcher auf den ausgetauschten Informationen basiert, wird eine der möglichen Pairing Methoden ausgewählt. Es gibt dabei unterschiedliche Pairing Methoden, welche verwendet werden können und der weitere Pairing Prozess hängt stark von der verwendeten Pairing Methode ab. \cite{bluetooth_formal_analysis}} \\
+    \text{Ein essentieller Bestandteil des Verbindungsaufbaus ist der Pairing Prozess. Hier werden zunächst die Informationen ausgetauscht, welche benötgt werden, um später die Pairing Methode auszuwählen. Zum Beispiel geht es darum, ob ein Gerät eine Anzeigefunktion besitzt oder nicht. Danach werden die öffentlichen Schlüssel beider Geräte ausgetauscht, welche dann wiederum dafür verwendet werden, um den Diffie-Hellmann Schlüssel zu berechnen. Basierend auf diesem Schlüssel, welcher auf den ausgetauschten Informationen basiert, wird eine der möglichen Pairing Methoden ausgewählt. Es gibt dabei unterschiedliche Pairing Methoden, welche verwendet werden können und der weitere Pairing Prozess hängt stark von der verwendeten Pairing Methode ab. \cite{bluetooth_formal_analysis}} \\
     \text{Im Folgenden werden lediglich die Methoden Passkey Entry (PE) und Numeric Comparison (NC) betrachtet. Dies hat den Hintergrund, dass die Pairing Methode Just Works hauptsächlich von legacy Geräten verwendet wird, die Sicherheitsmaßnahmen dementsprechend sehr veraltet sind und viele sicherheitstechnische Risiken bestehen. Es existiert kein MITM Schutz, wodurch eine Berücksichtigung der Methode für einen Angriff der auf eine MITM Position abzielt nicht notwendig ist.} \cite{bluetooth_newest_security_risks} \\
     \text{Out of Band Pairing (OOB) ermöglicht, dass Entwickler eigene Pairing Mechanismen implementieren können. Dementsprechend hängen die sicherheitstechnischen Risiken sehr stark von den einzelnen Implementierungen ab. Mit den korrekten Konfigurationen kann OOB aber durchaus einen MITM Schutz bieten, da es nicht auf den MITM Schutz von Bluetooth basieren muss. Eine Berücksichtigung von OOB wird daher in den folgenden Abschnitten nicht vorgenommen.} \cite{method_confusion_attack, bluetooth_oob}
 
