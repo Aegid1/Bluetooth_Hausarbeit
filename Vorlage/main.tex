@@ -85,7 +85,7 @@
 
         
     \section{Related Work}
-    Tschirschnitz et al. \cite{method_confusion_attack} stellten in ihrer Arbeit den Method Confusion Angriff im Kontext von Bluetooth erstmalig vor. Sie gingen dabei auch auf mögliche Lösungen ein, die verantwortliche Schwachstelle zu beheben.
+    Tschirschnitz et al. \cite{method_confusion_attack} stellten in ihrer Arbeit den Method Confusion Angriff im Kontext von Bluetooth erstmalig vor. Sie gingen dabei auch auf mögliche Lösungen ein, die verantwortliche Schwachstelle des Angriffs zu beheben.
     Bisdikian und Muraleedhara et al. \cite{bluetooth_newest_security_risks} betonen die allgemeinen Sicherheitsrisiken von Bluetooth, einschließlich Datenabfang und -manipulation.
     Unsere Arbeit verbindet die Angriffsmethode mit den daraus resultierenden Risiken und bietet Sicherheitsmaßnahmen. Wir geben konkrete Handlungsempfehlungen sowohl für Endnutzer als auch für Entwickler, um die Sicherheit von Bluetooth-Geräten zu verbessern. Wir nennen dabei ein konkretes Beispiel eines Risikos, welches die Notwendigkeit der Sicherheitsmaßnahmen verdeutlicht.
     Diese Betrachtung erweitert das Verständnis der Bluetooth-Sicherheitslandschaft und bietet praktische Lösungen zur Risikominderung.
@@ -138,7 +138,11 @@
     
     \newpage
 \section{Fazit}
-
+    In dieser Arbeit wurde der Method Confusion Angriff der Arbeti von Tschirschnitz et al. \cite{method_confusion_attack} im Kontext von Bluetooth hinsichtlich der Risiken und Sicherheitsmaßnahmen untersucht. Es wurde festgestellt, dass dieser Angriff eine ernsthafte Bedrohung für Bluetooth-Nutzer ist, da er es einem Angreifer ermöglicht, eine MITM Position zu erreichen. Dadurch erhält der Angreifer den potenziellen Zugriff auf sensible Daten der Benutzer. Die Durchführung nutzt dabei die Schwachstellen von Bluetooth aus und kann mit einer hohen Wahrscheinlichkeit unbemerkt bleiben, was den Angriff besonders gefährlich macht. \\
+    Man sollte aber nicht außer Acht lassen, dass gewisse Voraussetzungen dafür erfüllt sein müssen und der Angreifer bereits einige Informationen über das Ziel benötigt um den Angriff auszuführen. Der Angreifer benötigt die Informationen, welche Geräte eine Verbindung herstellen möchten. Solange das Ziel keine eindeutigen Bezeichnungen für die Geräte verwendet, wie beispielsweise 'Smartphone von A' und 'SmartWatch von A', wird es dem Angreifer erschwert, herauszufinden welche Geräte sich potenziell verbinden wollen. Zudem existiert der Fall, dass zwischen den Geräten bereits eine aktive Verbindung besteht, wodurch der Angreifer zusätzliche Angriffe benötigt um diese Verbindung zu unterbrechen.
+    Dennoch stellt die Nutzung von Bluetooth ein erhebliches Risiko dar, wenn diese Hürden überwunden sind. Dementsprechend müssen sowohl die Benutzer als auch die Entwickler Maßnahmen ergreifen, um sich gegen solche Angriffe zu schützen. Für die Benutzer ist es nach \cite{bluetooth_newest_security_risks} wichtig, die Sichtbarkeit ihrer Geräte zu beschränken und Bluetooth nur bei Bedarf zu aktivieren. Entwickler sollten sicherstellen, dass Geräte nach der neuesten Bluetooth-Spezifikation ausgerichtet sind und laut \cite{method_confusion_attack} sollten die Schwachstellen der Pairing Methoden behoben werden. \\
+    Abschließend lässt sich sagen, dass die Sicherheit von Bluetooth ein fortlaufender Prozess ist, der ständige Anpassungen erfordert, um Schutz vor neuen Bedrohungen zu gewährleisten. Es ist die gemeinsame Verantwortung der Benutzer und Entwickler sich den Bedrohungen bewusst zu sein und Maßnahmen zu ergreifen, um die eigenen Daten zu schützen. 
+    
     \newpage
 
     \bibliographystyle{ieeetr}
